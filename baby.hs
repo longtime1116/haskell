@@ -52,3 +52,33 @@ circumference' r = 2 * pi * r
 -- :t show    # show :: Show a => a -> String
 -- show True
 
+-- :t read    # show :: Show a => a -> String
+-- read "8.2" + 3.8 + read "1.0"
+-- read "5" :: Int
+-- read "5" :: Float
+-- read "(1, 'a')" :: (Int, Char)
+-- read "True" :: Bool
+-- [read "True", True, False, False]
+
+
+--[LT .. GT]
+--['A'..'z']
+--succ 'B'
+--pred 'B'
+
+-- :t minBound  # minBound :: Bounded a => a
+-- maxBound :: Int
+-- minBound :: Int
+-- maxBound :: Char
+-- minBound :: Char
+-- maxBound :: Bool
+-- minBound :: Bool
+-- maxBound :: (Bool, Int, Char)
+
+
+-- :t 20      # 20 :: Num p => p
+-- 20 :: Double
+
+
+-- fromIntegral (length [1,2,3]) + 3.2
+
