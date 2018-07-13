@@ -86,3 +86,27 @@ circumference' r = 2 * pi * r
 lucky :: Int -> String
 lucky 7 = "LUCKY NUMBER SEVEN!"
 lucky x = "Sorry, you're outof luck, pal!"
+
+
+factorial2 :: Int -> Int
+factorial2 0 = 1
+factorial2 n = n * factorial2 (n - 1)
+
+capital :: String -> Char
+capital "Albert" = 'a'
+capital "x" = 'x'
+capital x = '!'
+
+addVectors :: (Double, Double) -> (Double, Double) -> (Double, Double)
+addVectors (x1, y1) (x2, y2) = (x1 + x2, y1 + y2)
+
+tell :: (Show a) => [a] -> String
+tell [] = "The list is empty"
+tell (x:[]) = "The list has one elemet: " ++ show x
+tell (x:y:[]) = "The list has two elemets: " ++ show x ++ ", " ++ show y
+tell (x:y:_) = "The list has more than two elemets: " ++ show x ++ ", " ++ show y ++ ", and etc..."
+
+firstLetter :: String -> String
+firstLetter "" = "Empty string."
+firstLetter all@(x:xs) = "The first letter of " ++ all ++ " is " ++ [x] -- x は Char なので、[Char] にすると連結できる
+
