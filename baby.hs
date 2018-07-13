@@ -82,3 +82,7 @@ circumference' r = 2 * pi * r
 
 -- fromIntegral (length [1,2,3]) + 3.2
 
+
+lucky :: Int -> String
+lucky 7 = "LUCKY NUMBER SEVEN!"
+lucky x = "Sorry, you're outof luck, pal!"
