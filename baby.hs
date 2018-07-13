@@ -110,3 +110,21 @@ firstLetter :: String -> String
 firstLetter "" = "Empty string."
 firstLetter all@(x:xs) = "The first letter of " ++ all ++ " is " ++ [x] -- x は Char なので、[Char] にすると連結できる
 
+bmi :: Double -> Double -> Double
+bmi weight height = weight / height ^ 2
+
+bmiTell :: Double -> Double -> String
+bmiTell weight height
+  | (bmi weight height) <= 18.5 = "A"
+  | (bmi weight height) <= 25.0 = "B"
+  | (bmi weight height) <= 30.0 = "C"
+  | otherwise = "F"
+
+-- max' :: Ord -> Ord -> Ord   <- このようにできない理由は、Ord 型の値というわけではなく、
+-- Ord を実装したより具体的な何かを指し示しているから?
+-- 一方 Double -> Double -> Double とかだと、Double型の値そのものなのでOKなのでは
+-- Ord は型クラスであり、Doubleは型
+max' :: (Ord a) => a -> a -> a
+max' a b
+  | a <= b = b
+  | otherwise = a
