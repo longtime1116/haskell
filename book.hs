@@ -168,3 +168,17 @@ cylinder r h =
     let sideArea = 2 * pi * r * h     -- let bindings in expression で let 式
         topArea = pi * r ^ 2
     in sideArea + topArea * 2
+
+
+describeString :: String -> String
+describeString ls = "The list is "
+                  ++ case ls of [] -> "empty."
+                                [x] -> "a singleton list."
+                                (x:_) -> "a longer list, and the first is " ++ [x]
+
+
+describeList :: [a] -> String
+describeList ls = "The list is " ++ what ls
+  where what [] = "empty."
+        what [x] = "a singleton list."
+        what xs = "a longer list."
