@@ -157,3 +157,14 @@ initials firstname lastname = [f] ++ "." ++ [l] ++ "."
 calcBmis :: [(Double, Double)] -> [Double]
 calcBmis xs = [bmi w h | (w, h) <- xs]
   where bmi weight height = weight / height ^2
+
+
+calcBmis' :: [(Double, Double)] -> [Double]
+calcBmis' xs = [bmi | (weight, height) <- xs, let bmi = weight / height ^ 2, bmi > fatty]
+  where fatty = 30.0
+
+cylinder :: Double -> Double -> Double
+cylinder r h =
+    let sideArea = 2 * pi * r * h     -- let bindings in expression で let 式
+        topArea = pi * r ^ 2
+    in sideArea + topArea * 2
