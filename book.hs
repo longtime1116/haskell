@@ -207,3 +207,16 @@ reverse' (x:xs) = reverse' xs ++ [x]
 
 repeat' :: a -> [a]
 repeat' a = [a] ++ repeat' a
+
+
+zip' :: [a] -> [b] -> [(a,b)]
+zip' [] _ = []
+zip' _ [] = []
+zip' (x:xs) (y:ys) = (x, y) : zip' xs ys
+
+elem' :: (Eq a) => a -> [a] -> Bool
+elem' n [] = False
+elem' n (x:xs)
+  | n == x = True
+  | otherwise  = elem' n xs
+
