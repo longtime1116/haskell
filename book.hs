@@ -220,3 +220,15 @@ elem' n (x:xs)
   | n == x = True
   | otherwise  = elem' n xs
 
+
+quicksort :: (Ord a) => [a] -> [a]
+quicksort [] = []
+quicksort (x:xs) = quicksort [a | a <- xs, a <= x] ++ [x] ++ quicksort [a | a <- xs, a >= x]
+
+quicksort' :: (Ord a) => [a] -> [a]
+quicksort' [] = []
+quicksort' (x:xs) =
+    let smallOrEqual = [a | a <- xs, a <= x]
+        large = [a | a <- xs, a >= x]
+    in quicksort smallOrEqual ++ [x] ++ quicksort large
+
