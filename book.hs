@@ -232,3 +232,34 @@ quicksort' (x:xs) =
         large = [a | a <- xs, a >= x]
     in quicksort smallOrEqual ++ [x] ++ quicksort large
 
+
+-- Int 型の値を受け取り、(Int->(Int->Int)) の型を返す
+--    -> Int 型の値を受け取り、(Int->Int) の型を返す
+--      -> Int 型の値を受け取り、Int の型を返す
+multiThree :: Int -> (Int -> (Int -> Int))
+multiThree x y z = x * y * z
+
+multiFour :: Int -> Int -> (Int -> (Int -> Int))
+multiFour a b c d = (multiThree a) b c * d
+
+multiTwoWithNine = multiThree 9   -- ghci では let で宣言するとエラーにならない
+-- multiTwoWithNine 2 3
+
+
+-- compare :: (Ord a) => a -> a -> Ordering なので
+compareWithHundred :: Int -> Ordering
+compareWithHundred x = x `compare` 100
+
+
+compareToHundred :: Int -> Ordering
+compareToHundred = (100 `compare`)
+
+compareToHundred' :: Int -> Ordering
+compareToHundred' = (compare 100)
+
+
+divideByTen :: (Floating a) => a -> a
+divideByTen = (/10)
+
+isUpperAlphanum :: Char -> Bool
+isUpperAlphanum = (`elem` ['A'..'Z'])
