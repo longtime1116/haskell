@@ -278,3 +278,7 @@ flip' f x y = f y x
 -- hoge = flip' compare
 -- hoge 100 2 => LT
 -- geho = flip' compare 100 2
+
+-- map
+
+-- filter
