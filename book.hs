@@ -311,7 +311,11 @@ collatz x
   | even x = x : collatz (x `div` 2)
   | odd x = x : collatz (x * 3 + 1)
 
+numberOfLongCollatz :: Int -> Int
 numberOfLongCollatz n = length(filter isLong (map collatz [1..100]))
   where isLong xs = length(xs) >= n
+longCollatz :: Integral a => Int -> [[a]]
 longCollatz n = filter isLong (map collatz [1..100])
   where isLong xs = length(xs) >= n
+longCollatzWithLambda :: Integral a => Int -> [[a]]
+longCollatzWithLambda n = filter (\xs -> length(xs) >= n) (map collatz [1..100])
