@@ -290,3 +290,9 @@ filter' _ [] = []
 filter' f (x:xs)
   | f x = x : filter' f xs
   | otherwise = filter' f xs
+
+largestDivisible = head (filter p [100000, 99999..])
+  where p x = x `mod` 3829 == 0
+
+takeDivisible = takeWhile (> 0) (filter p [100000, 99999..])
+  where p x = x `mod` 3829 == 0
