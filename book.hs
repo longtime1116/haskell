@@ -319,3 +319,18 @@ longCollatz n = filter isLong (map collatz [1..100])
   where isLong xs = length(xs) >= n
 longCollatzWithLambda :: Integral a => Int -> [[a]]
 longCollatzWithLambda n = filter (\xs -> length(xs) >= n) (map collatz [1..100])
+
+suml :: (Foldable t, Num a) => t a -> a
+suml xs = foldl (\acc x -> acc + x) 0 xs
+suml' :: (Foldable t, Num a) => t a -> a
+suml' = foldl (+) 0
+sumr :: (Foldable t, Num a) => t a -> a
+sumr xs = foldr (\x acc -> x + acc) 0 xs
+
+mapr :: (Foldable t, Num a) => t a -> [a]
+mapr xs = foldr (\x acc -> x + 1 : acc) [] xs
+
+-- elem'' 2 [2,3..] みたいに無限配列に対して使える、True ならば。
+elem'' :: (Foldable t, Eq a) => a -> t a -> Bool'
+elem'' y ys = foldr (\x acc -> if x == y then True else acc) False ys
+
