@@ -331,6 +331,19 @@ mapr :: (Foldable t, Num a) => t a -> [a]
 mapr xs = foldr (\x acc -> x + 1 : acc) [] xs
 
 -- elem'' 2 [2,3..] みたいに無限配列に対して使える、True ならば。
-elem'' :: (Foldable t, Eq a) => a -> t a -> Bool'
+elem'' :: (Foldable t, Eq a) => a -> t a -> Bool
 elem'' y ys = foldr (\x acc -> if x == y then True else acc) False ys
 
+-- scanl (+) 0 [1,2,3,4,5,6,7,8,9]  => [0,1,3,6,10,15,21,28,36,45]
+-- scanr (+) 0 [1,2,3,4,5,6,7,8,9] => [45,44,42,39,35,30,24,17,9,0]
+
+-- 自然数の平方根を小さい順に足していったときに、1000を超えるのは何個目？
+
+sqrtSum1 :: Int
+sqrtSum1 = length(takeWhile(<=1000) $ scanl (\acc x -> acc + sqrt x) 0 [1..])
+sqrtSum2 :: Int
+sqrtSum2 = length(takeWhile(<=1000) $ scanl (+) 0 (map sqrt [1..]))
+
+-- sqrtSumAns 130
+-- sqrtSumAns 131
+sqrtSumAns n = sum (map sqrt [1..n])
