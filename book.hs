@@ -296,3 +296,22 @@ largestDivisible = head (filter p [100000, 99999..])
 
 takeDivisible = takeWhile (> 0) (filter p [100000, 99999..])
   where p x = x `mod` 3829 == 0
+
+-- コラッツ列
+-- 任意の自然数から開始する
+-- 数が1ならば終了
+-- 数が偶数ならば2で割る
+-- 数が奇数ならば3倍して1足す
+-- 新しい値でこのアルゴリズムを繰り返す
+-- どんな数字を初期値としてとっても 1 に到達すると予想されている
+-- 1〜100までの数値でコラッツ列が15以上になるものを列挙する
+collatz :: Integral a => a -> [a]
+collatz 1 = [1]
+collatz x
+  | even x = x : collatz (x `div` 2)
+  | odd x = x : collatz (x * 3 + 1)
+
+numberOfLongCollatz n = length(filter isLong (map collatz [1..100]))
+  where isLong xs = length(xs) >= n
+longCollatz n = filter isLong (map collatz [1..100])
+  where isLong xs = length(xs) >= n
