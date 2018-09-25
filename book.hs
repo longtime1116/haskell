@@ -402,6 +402,7 @@ phoneBook =
     , ("betty", "222-3456")
     , ("carol", "333-4567")
     , ("dan", "444-5678")
+    , ("dan", "456-5678")
     ]
 
 findKey :: Eq a => a -> [(a, c)] -> c
@@ -415,3 +416,27 @@ findKey' key ((k, v):xs)
 
 findKey'' :: Eq a => a -> [(a, c)] -> Maybe c
 findKey'' key = foldr (\(k,v) acc -> if k == key then Just v else acc) Nothing
+
+
+-- Map.fromList [(3, "shoes"), (4, "trees"), (0, "bees")]
+-- Map.fromList [("MS", 1), ("MS", 2), ("MS", 3)] => [("MS"), 3]
+
+
+mapPhoneBook :: Map.Map String String
+mapPhoneBook = Map.fromList $
+    [ ("andrew", "111-2345")
+    , ("betty", "222-3456")
+    , ("carol", "333-4567")
+    , ("dan", "444-5678")
+    ]
+
+mapNewBook = Map.insert "ema" "555-6789" mapPhoneBook
+
+string2digits :: [Char] -> [Int]
+string2digits = map digitToInt . filter isDigit
+
+-- Map.map は value に対して 写像を適用する
+intBook = Map.map string2digits mapPhoneBook
+
+mapPhoneBook2 :: (Ord k0) => [(k0, [Char])] -> Map.Map k0 [Char]
+mapPhoneBook2 = Map.fromListWith (\new old -> new ++ ", " ++ old)
