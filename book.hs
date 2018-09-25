@@ -391,3 +391,7 @@ decode offset = map (chr . (+ negate offset) . ord)
 
 -- foldl (+) 0 (replicate 100000000 1)
 -- foldl' (+) 0 (replicate 100000000 1) # こちらは遅延評価しないので stack overflow にならない
+
+digitSum :: Int -> Int
+digitSum = sum . map digitToInt . show
+
