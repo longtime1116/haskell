@@ -2,6 +2,7 @@
 import Data.List
 import Data.Char
 import qualified Data.Map as Map
+import Geometry
 
 doubleMe x = x + x
 doubleUs x y = doubleMe x + doubleMe y
