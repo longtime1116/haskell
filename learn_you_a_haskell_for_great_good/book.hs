@@ -3,6 +3,9 @@ import Data.List
 import Data.Char
 import qualified Data.Map as Map
 import Geometry
+import qualified Geometry2.Sphere as Sphere
+import qualified Geometry2.Cuboid as Cuboid
+import qualified Geometry2.Cube as Cube
 
 doubleMe x = x + x
 doubleUs x y = doubleMe x + doubleMe y
