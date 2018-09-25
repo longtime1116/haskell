@@ -394,4 +394,5 @@ decode offset = map (chr . (+ negate offset) . ord)
 
 digitSum :: Int -> Int
 digitSum = sum . map digitToInt . show
-
+firstToN :: Int -> Maybe Int
+firstToN n = find (\x -> digitSum x >= n) [1..]
