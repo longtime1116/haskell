@@ -1,3 +1,7 @@
+-- chapter 6
+import Data.List
+import qualified Data.Map as Map
+
 doubleMe x = x + x
 doubleUs x y = doubleMe x + doubleMe y
 doubleSmallNumber x = if x > 100
@@ -368,3 +372,7 @@ sqrtSumAns n = sum (map sqrt [1..n])
 -- replicate 2 (product (map (*3) (zipWith max [1, 2] [4, 5])))
 -- after
 -- replicate 2 . product . map (*3) $ zipWith max [1, 2] [4, 5]
+
+-- wa wa wee wa -> [("wa",3),("wee",1)]
+wordNums :: String -> [(String, Int)]
+wordNums = map (\xs -> (head xs, length xs)) . group . sort . words
