@@ -396,3 +396,22 @@ digitSum :: Int -> Int
 digitSum = sum . map digitToInt . show
 firstToN :: Int -> Maybe Int
 firstToN n = find (\x -> digitSum x >= n) [1..]
+
+phoneBook =
+    [ ("andrew", "111-2345")
+    , ("betty", "222-3456")
+    , ("carol", "333-4567")
+    , ("dan", "444-5678")
+    ]
+
+findKey :: Eq a => a -> [(a, c)] -> c
+findKey key = snd . head . filter (\(k, v) -> k == key)
+
+findKey' :: Eq a => a -> [(a, c)] -> Maybe c
+findKey' key [] = Nothing
+findKey' key ((k, v):xs)
+  | key == k = Just v
+  | otherwise = findKey' key xs
+
+findKey'' :: Eq a => a -> [(a, c)] -> Maybe c
+findKey'' key = foldr (\(k,v) acc -> if k == key then Just v else acc) Nothing
