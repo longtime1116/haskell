@@ -1,5 +1,6 @@
 -- chapter 6
 import Data.List
+import Data.Char
 import qualified Data.Map as Map
 
 doubleMe x = x + x
@@ -376,3 +377,17 @@ sqrtSumAns n = sum (map sqrt [1..n])
 -- wa wa wee wa -> [("wa",3),("wee",1)]
 wordNums :: String -> [(String, Int)]
 wordNums = map (\xs -> (head xs, length xs)) . group . sort . words
+
+
+-- tail "party"
+-- -> ["party","arty","rty","ty","y",""]
+isIn :: (Eq a) => [a] -> [a] -> Bool
+needle `isIn` haystack = any (needle `isPrefixOf`) (tails haystack)
+
+encode :: Int -> [Char] -> [Char]
+encode offset = map (chr . (+ offset) . ord)
+decode :: Int -> [Char] -> [Char]
+decode offset = map (chr . (+ negate offset) . ord)
+
+-- foldl (+) 0 (replicate 100000000 1)
+-- foldl' (+) 0 (replicate 100000000 1) # こちらは遅延評価しないので stack overflow にならない
