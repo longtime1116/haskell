@@ -475,3 +475,25 @@ type PhoneBookSynonym = [(Name, PhoneNumber)]
 
 phoneBookSynonym :: PhoneBookSynonym
 phoneBookSynonym = [("Taro", "111-1111"), ("Jiro", "222-2222")]
+
+data LockerState = Taken | Free deriving (Show, Eq)
+type Code = String
+type LockerMap = Map.Map Int (LockerState, Code)
+
+lockerLookup :: Int -> LockerMap -> Either String Code
+lockerLookup lockerNumber lockerMap = case Map.lookup lockerNumber lockerMap of
+    Nothing -> Left $ "Locker " ++ show lockerNumber ++ " doesn't exist."
+    Just (state, code) -> if state /= Taken
+                          then Right code
+                          else Left $ "Locker " ++ show lockerNumber ++ " is already taken."
+
+lockers :: LockerMap
+lockers = Map.fromList
+  [ (100, (Taken, "ABCDE"))
+  , (101, (Free, "AAAAA"))
+  , (103, (Taken, "AsAAA"))
+  , (104, (Taken, "AqAAA"))
+  ]
+-- lockerLookup 100 lockers
+-- lockerLookup 101 lockers
+-- lockerLookup 102 lockers
