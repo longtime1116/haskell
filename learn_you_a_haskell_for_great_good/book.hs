@@ -7,6 +7,9 @@ import qualified Geometry2.Sphere as Sphere
 import qualified Geometry2.Cuboid as Cuboid
 import qualified Geometry2.Cube as Cube
 
+-- chapter 7
+import Shapes
+
 doubleMe x = x + x
 doubleUs x y = doubleMe x + doubleMe y
 doubleSmallNumber x = if x > 100
@@ -444,3 +447,5 @@ intBook = Map.map string2digits mapPhoneBook
 
 mapPhoneBook2 :: (Ord k0) => [(k0, [Char])] -> Map.Map k0 [Char]
 mapPhoneBook2 = Map.fromListWith (\new old -> new ++ ", " ++ old)
+
+
