@@ -10,6 +10,8 @@ import qualified Geometry2.Cube as Cube
 -- chapter 7
 import Shapes
 import Person
+import Vector
+import Day
 
 doubleMe x = x + x
 doubleUs x y = doubleMe x + doubleMe y
@@ -461,3 +463,7 @@ taro =  Person { firstName = "Taro"
 -- :t height
 --    => height :: Person -> Float
 -- height taro
+
+x1 = Vector 1 2 3
+y1 = Vector 4 5 6
+-- x1 `vplus` y1
