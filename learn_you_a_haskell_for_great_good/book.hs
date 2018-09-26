@@ -9,6 +9,7 @@ import qualified Geometry2.Cube as Cube
 
 -- chapter 7
 import Shapes
+import Person
 
 doubleMe x = x + x
 doubleUs x y = doubleMe x + doubleMe y
@@ -451,3 +452,12 @@ mapPhoneBook2 = Map.fromListWith (\new old -> new ++ ", " ++ old)
 -- map area . map (Circle 10 20) $ [4, 5, 6, 6]
 
 
+taro :: Person
+taro =  Person { firstName = "Taro"
+               , lastName = "Tanaka"
+               , age = 1
+               , height = 178.5
+               , phoneNumber = "222-2222" }
+-- :t height
+--    => height :: Person -> Float
+-- height taro
