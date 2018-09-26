@@ -467,3 +467,11 @@ taro =  Person { firstName = "Taro"
 x1 = Vector 1 2 3
 y1 = Vector 4 5 6
 -- x1 `vplus` y1
+
+
+type PhoneNumber = String
+type Name = String
+type PhoneBookSynonym = [(Name, PhoneNumber)]
+
+phoneBookSynonym :: PhoneBookSynonym
+phoneBookSynonym = [("Taro", "111-1111"), ("Jiro", "222-2222")]
