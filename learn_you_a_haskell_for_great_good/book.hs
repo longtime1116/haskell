@@ -448,4 +448,6 @@ intBook = Map.map string2digits mapPhoneBook
 mapPhoneBook2 :: (Ord k0) => [(k0, [Char])] -> Map.Map k0 [Char]
 mapPhoneBook2 = Map.fromListWith (\new old -> new ++ ", " ++ old)
 
+-- map area . map (Circle 10 20) $ [4, 5, 6, 6]
+
 
