@@ -540,3 +540,10 @@ isTruthyIf v trutyResult falsyResult =
         then trutyResult
         else falsyResult
 
+
+-- fmap (*2) (Just 200)
+-- fmap (*2) [2,3,5]
+
+instance Functor Tree where
+    fmap f EmptyTree = EmptyTree
+    fmap f (Node x left right) = Node (f x) (fmap f left) (fmap f right)
