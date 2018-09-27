@@ -547,3 +547,12 @@ isTruthyIf v trutyResult falsyResult =
 instance Functor Tree where
     fmap f EmptyTree = EmptyTree
     fmap f (Node x left right) = Node (f x) (fmap f left) (fmap f right)
+
+-- :k Num
+-- :k Num Int
+-- :k Int
+-- :k Maybe
+-- :k Maybe Int
+-- :k Either
+-- :k Either String
+-- :k Either String Int
