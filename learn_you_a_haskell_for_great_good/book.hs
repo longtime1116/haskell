@@ -12,6 +12,7 @@ import Shapes
 import Person
 import Vector
 import Day
+import Tree
 
 doubleMe x = x + x
 doubleUs x y = doubleMe x + doubleMe y
@@ -497,3 +498,7 @@ lockers = Map.fromList
 -- lockerLookup 100 lockers
 -- lockerLookup 101 lockers
 -- lockerLookup 102 lockers
+
+
+numsForTree = [8,6,1,7,3,5]
+numsTree = foldr treeInsert EmptyTree numsForTree
