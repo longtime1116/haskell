@@ -511,7 +511,32 @@ instance Eq TrafficLight where
     Green == Green = True
     _ == _ = False
 
+
 instance Show TrafficLight where
     show Red = "Red! Stop!"
     show Yellow = "Yellow! Go carefully!"
     show Green = "Green! Go Go Go!"
+
+
+class IsTruthy a where
+    isTruthy :: a -> Bool
+
+instance IsTruthy Int where
+    isTruthy 0 = False
+    isTruthy _ = True
+
+instance IsTruthy [a] where
+    isTruthy [] = False
+    isTruthy _ = True
+
+instance IsTruthy (Tree a) where
+    isTruthy EmptyTree = False
+    isTruthy _  = True
+-- isTruthy (0 :: Int)
+
+isTruthyIf :: (IsTruthy t) => t -> a -> a -> a
+isTruthyIf v trutyResult falsyResult =
+    if isTruthy v
+        then trutyResult
+        else falsyResult
+
