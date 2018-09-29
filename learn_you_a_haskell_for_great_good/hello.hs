@@ -38,3 +38,16 @@
 --     print True
 --     print 1.1
 --     print [1,2,3]
+
+
+-- when
+import Control.Monad
+main = do
+        putStrLn "Say YES!"
+        input <- getLine
+        when (input == "YES") $ do
+          putStrLn "Exactly!"
+          main
+
+
+
