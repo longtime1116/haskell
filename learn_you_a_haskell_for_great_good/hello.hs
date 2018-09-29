@@ -70,15 +70,21 @@
 -- mapM print [1,2,3]
 --  == sequence $ map print [1, 2, 3]
 
+-- import Control.Monad
+-- import Data.Char
+-- main = forever $ do
+--     putStrLn "What's your name?"
+--     name <- getLine
+--     putStrLn $ "Hello, " ++ map toUpper name
+
+
 import Control.Monad
-import Data.Char
-
-main = forever $ do
-    putStrLn "What's your name?"
-    name <- getLine
-    putStrLn $ "Hello, " ++ map toUpper name
-
-
+main = do
+        colors <- forM [1,2,3,4] $ \a -> do
+            putStrLn $ "Hoge: " ++ show a
+            color <- getLine
+            return color
+        mapM putStrLn colors
 
 
 
