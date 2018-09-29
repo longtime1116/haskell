@@ -41,13 +41,26 @@
 
 
 -- when
-import Control.Monad
+-- import Control.Monad
+-- main = do
+--         putStrLn "Say YES!"
+--         input <- getLine
+--         when (input == "YES") $ do
+--           putStrLn "Exactly!"
+--           main
+
+
+-- seqence は I/O アクションのリストを受け取り、それらを順に実行する I/O アクションを返す
+-- この I/O アクションが生成する結果は、それぞれの I/O アクションを実行した結果である。
+-- <- を使うと結果を名前に束縛するので、↓の例だと rs は I/O アクションの実行結果の配列となる
+
+-- main = do
+--         a <- getLine
+--         b <- getLine
+--         c <- getLine
+--         putStrLn $ a ++ b ++ c
+
 main = do
-        putStrLn "Say YES!"
-        input <- getLine
-        when (input == "YES") $ do
-          putStrLn "Exactly!"
-          main
-
-
+        rs <- sequence [getLine, getLine, getLine]
+        print rs
 
