@@ -21,13 +21,20 @@
 
 
 -- return () は引数で渡した pure な値から I/O アクションを作り出すもの
-main = do
-    putStrLn "What's your name?"
-    name <- getLine
-    if null name
-        then return ()
-        else do
-            putStrLn $ reverseWords name
-            main
-reverseWords :: String -> String
-reverseWords = unwords . map reverse . words
+-- main = do
+--     putStrLn "What's your name?"
+--     name <- getLine
+--     if null name
+--         then return ()
+--         else do
+--             putStrLn $ reverseWords name
+--             main
+-- reverseWords :: String -> String
+-- reverseWords = unwords . map reverse . words
+
+
+-- print = putStrLn . show
+-- main = do
+--     print True
+--     print 1.1
+--     print [1,2,3]
