@@ -60,7 +60,25 @@
 --         c <- getLine
 --         putStrLn $ a ++ b ++ c
 
-main = do
-        rs <- sequence [getLine, getLine, getLine]
-        print rs
+-- main = do
+--         rs <- sequence [getLine, getLine, getLine]
+--         print rs
+
+
+-- print :: Show a => a -> IO ()
+
+-- mapM print [1,2,3]
+--  == sequence $ map print [1, 2, 3]
+
+import Control.Monad
+import Data.Char
+
+main = forever $ do
+    putStrLn "What's your name?"
+    name <- getLine
+    putStrLn $ "Hello, " ++ map toUpper name
+
+
+
+
 
